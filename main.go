@@ -1,12 +1,17 @@
 package main
 
 import (
-	_"EutopiaQQBot/send"
+	"EutopiaQQBot/database"
 	"EutopiaQQBot/receive"
+	_ "EutopiaQQBot/send"
+	"sync"
 )
 
-
-
 func main() {
-	receive.InitRoute()
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go receive.InitRoute()
+	wg.Add(1)
+	go database.InitDatabase()
+	wg.Wait()
 }
