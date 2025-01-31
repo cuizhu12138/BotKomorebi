@@ -24,6 +24,8 @@ func checkQQGroupID(groupID string) bool {
 		return true
 	} else if groupID == "821652948" {
 		return true
+	} else if groupID == "835716258" {
+		return true
 	}
 
 	return false
